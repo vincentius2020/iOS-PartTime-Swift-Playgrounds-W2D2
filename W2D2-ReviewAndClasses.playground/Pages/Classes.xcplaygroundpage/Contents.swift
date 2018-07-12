@@ -9,7 +9,7 @@
 
 
 class Box {
-    var height: Double = 0.0
+    var height: Double = 3.0
     var width: Double = 0.0
     
     func area() -> Double {
@@ -36,7 +36,8 @@ box1.height
 //: To change a property, use a . and an assignment operator (`=`)
 
 box1.width = 10
-box1.height = 5
+box1.height = 10
+
 
 //: Functions that are part of objects are called "methods". Box has one menthod, `area()`, and we can run it to get the area of the box like this:
 
@@ -49,21 +50,32 @@ box1.area()
 //:
 //: Bicycles should also have two functions. `gearUp()` and `gearDown()`, which increase and decrease the value in `currentGear`.
 
-
+class Cycling {
+    var numberOfGears: Int = 10
+    var currentGear: Int = 1
+    
+    func gearUp() {
+        currentGear = currentGear + 1
+    }
+    
+    func gearDown() {
+        currentGear = currentGear - 1
+    }
+}
 
 
 
 //: Test your bicycle out by uncommenting the following code:
  
-//var myBike = Bicycle()
-//
-//myBike.numberOfGears = 16 // upgrade!
-//myBike.gearUp()
-//myBike.gearUp()
-//myBike.gearDown()
-//myBike.gearUp()
-//
-//print("my bike is in the \(myBike.currentGear)rd gear")
+var myBike = Cycling()
+
+myBike.numberOfGears = 16 // upgrade!
+myBike.gearUp()
+myBike.gearUp()
+myBike.gearDown()
+myBike.gearUp()
+
+print("my bike is in the \(myBike.currentGear)rd gear")
 
 
 //: ## Challenge 2
@@ -106,7 +118,31 @@ brightBulb.watts
 //: 4. The init method sets numberOfGears to the value in `gears`
 //:
 //: Hint: don't forget to supply a number of gears when you create your bicycles!
+class Bicycle {
+    let numberOfGears: Int
+    var currentGear: Int = 1
+    
+    init(gears: Double) {
+        numberOfGears = Int(gears)
+    }
+    
+    func gearUp() -> Int {
+        currentGear = currentGear + 1
+        
+        return currentGear
+    }
+    
+    func gearDown() {
+        currentGear = currentGear - 1
+    }
+    
+    
+}
 
+var bike1 = Bicycle(gears: 3)
+var myNewGear = bike1.gearUp()
+
+myNewGear = bike1.gearUp()
 
 
 
